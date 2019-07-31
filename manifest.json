@@ -1,0 +1,12 @@
+//json
+{ "manifest_version": 2,
+    "name" : "Youtube Demistifier", //funny pun
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
+            "js" : [/.main.js"]
+        }
+    ]
+}
+
