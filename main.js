@@ -45,9 +45,7 @@ function renderDates(jsoninfo, vidnodelist){
 		}
 	}
 }
-//// obj.appendChild(ourDate);
-						// obj.style.fontSize = "12px";
-						// obj.style.color = "red";
+
 
 getDates = function(json, list){
 	// ?lsdjglsjgflf
