@@ -7,6 +7,16 @@
             "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
             "js" : ["./main.js"]
         }
-    ]
+    ], //permissions - does the inability to retrieve our fetches have something to do with this? set this as tutorial says to
+   "permissions": [
+       "http://www.youtube.com/*",
+       "https.www.youtube.com/*"
+   ]
+    
 }
+//we might need this if we need to run background scfipts?? 
+// // "background": {
+    //     "scripts": ["background.js"],
+    //     "persistent": false;
+    // }
 
