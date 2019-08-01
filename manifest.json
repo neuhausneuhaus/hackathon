@@ -1,12 +1,30 @@
 //json
 { "manifest_version": 2,
-    "name" : "Youtube Demistifier", //funny pun
+    "name" : "Youtube Demystifier", //funny pun
     "version": "1.0",
     "content_scripts": [
         {
             "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
-            "js" : ["./main.js"]
+            "js" : ["./api.js","./main.js"],
+            "all_frames": true
         }
+    ],
+    "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+    },
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "unlimitedStorage",
+      "background",
+      "browsingData",
+      "contextMenus",
+      "contentSettings",
+      "debugger",
+      "tabCapture"
     ]
 }
+
+
 
