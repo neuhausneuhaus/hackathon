@@ -93,12 +93,10 @@
    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         // debugger;
        //Alert the message
-        console.log(request);
+        renderDates(request.data, nodeList);
        // alert("I'm main.js    I just heard from background and I thought I'd tell you about : " + request.greeting);//You have to choose which part of the response you want to display ie. request.greeting
        //Construct & send a response
-       sendResponse({
-           response: "Message received"
-       });
+      
    });
 
    //Send message to background page
@@ -111,7 +109,33 @@
         });
    }
 
+function renderDates(jsoninfo, vidnodelist){
+  console.log(jsoninfo);
+  console.log(vidnodelist)
+// info is a (fake) JSON response with data on all our recommended ids
+  for (let item of jsoninfo.items) {
+      let id = item.id;
+      // console.log(`ITEM: ${item}`)
+      let date = item.snippet.publishedAt;
+      let dateObj = new Date (date)
+      date = dateObj.toDateString().slice(4);
 
+      //if videos[id] === vidnodelist items, append videos[publishedat] inside its div;
+      //look to nodelist that matches id, paste its date in it;
+      for (let vid of vidnodelist) {
+        let link = vid.getAttribute('href').split("v=")[1]
+        // console.log('item id:', item.id)
+        // console.log('link:' + link)
+        if (item.id === link) {
+          //put date here 
+          // console.log('match', vid)
+          vid.appendChild(document.createTextNode(date));
+          vid.style.fontSize = "12px";
+          vid.style.color = "red";
+        }
+    }
+  }
+}
 
 let weGotIt =function (message){
   alert("oh fuck yea");
@@ -135,11 +159,13 @@ let IDList = [];
 function makeIDList(arr) {
 	makeIDListCalled++;
 	if (makeIDListCalled<=1){
+    console.log(arr);
 		for (let obj of arr) {
-			let sliced = obj.search.slice(3);
+
+			let sliced = obj.search.replace(/\?v=/, "").split(/\&t=/)[0];
 			IDList.push(sliced);
 		}
-		console.log(IDList);
+		 console.log(IDList);
     getDates(IDList);
 	}
 }

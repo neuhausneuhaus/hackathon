@@ -55,8 +55,13 @@ function queryYtAPI(IdList){
      mode: 'cors',
      cache: 'default'
    }
-   const myRequest = new Request(
-   'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=-N0LT3NWyqI%2ChHW1oY26kxQ%2CEcEMX-63PKY%2CgiouzUH5rOc%2CxLetZ-36TYs%26t%3D1123s%2CI8_2hPjljag%2C-FlxM_0S2lA%2CA9sOb_r6Hy0%2CYKXPlkhLIPw%2C6u5a7_-a3vM%2CbebuiaSKtU4%2CF0IbjVq-fgs%2CB8tQ8RUbTW8%2CIjWfwkLSKtA%2CfA551WpQaO4%2CTRgAfvzHdT8%2CGGBm9gTY2NU%2CA6eupBe1c6I%2CTmYcoozFYnU%2CbQzIQa5YKvw&key=AIzaSyCvURzZN9N_soKNHmiTE5DCKR2_CupZUHA',
+    // 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=-N0LT3NWyqI%2ChHW1oY26kxQ%2CEcEMX-63PKY%2CgiouzUH5rOc%2CxLetZ-36TYs%26t%3D1123s%2CI8_2hPjljag%2C-FlxM_0S2lA%2CA9sOb_r6Hy0%2CYKXPlkhLIPw%2C6u5a7_-a3vM%2CbebuiaSKtU4%2CF0IbjVq-fgs%2CB8tQ8RUbTW8%2CIjWfwkLSKtA%2CfA551WpQaO4%2CTRgAfvzHdT8%2CGGBm9gTY2NU%2CA6eupBe1c6I%2CTmYcoozFYnU%2CbQzIQa5YKvw&key=AIzaSyCvURzZN9N_soKNHmiTE5DCKR2_CupZUHA',
+   // debugger;
+   let idString = IdList.join("%");
+   let apiKey = "&key=AIzaSyDg6lpc7p_KCGp3rax0MyzYb3ieEV2vj6Y"
+   let urlString = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+idString+apiKey;
+   let myRequest = new Request(
+   'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=',
    myInit);
  
    fetch(myRequest)
