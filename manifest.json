@@ -5,7 +5,7 @@
     "content_scripts": [
         {
             "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
-            "js" : ["./api.js","./main.js"],
+            "js" : ["./main.js"],
             "all_frames": true
         }
     ],
